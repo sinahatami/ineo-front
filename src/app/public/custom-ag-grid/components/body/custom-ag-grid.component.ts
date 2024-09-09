@@ -44,7 +44,6 @@ export class CustomAgGridComponent implements OnInit {
         pinned: 'right',
         colId: 'actions',
         maxWidth: 300,
-        //  autoHeight: true
       })
   }
 
@@ -54,7 +53,6 @@ export class CustomAgGridComponent implements OnInit {
   setHeader() {
     this.gridOption.columnDefs?.map((a: ColDef) => {
       a.headerComponent = HeaderRendererComponent
-      //a.headerComponentParams = a.headerName?.toLowerCase()
     })
 
   }

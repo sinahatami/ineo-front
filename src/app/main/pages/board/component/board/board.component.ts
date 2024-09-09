@@ -116,7 +116,6 @@ export class BoardComponent implements OnInit {
   }
 
   getAllBoard() {
-    // this.hideGrid()
     this.boardService.findAll().subscribe((res: IBoard[]) => {
       this.boardList = res
       if (this.boardList.length > 0) {

@@ -25,7 +25,6 @@ import { AuthGuardService } from './auth/providers/guard/auth.guard';
     LoaderModule,
     ToastrModule.forRoot({
       disableTimeOut: true,
-      // autoDismiss: false,
       positionClass: 'toast-top-center',
       closeButton: true,
       maxOpened: 1,

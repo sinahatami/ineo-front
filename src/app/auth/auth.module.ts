@@ -12,10 +12,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { ToastrService } from 'ngx-toastr';
 import { LogoutComponent } from './logout/logout.component'
 
-// import { FooterComponent } from './footer/footer.component'
-// import { AuthCallbackComponent } from './auth-callback/auth-callback.component'
-// import { SilentRefreshComponent } from './silent-refresh/silent-refresh.component'
-// import { LogoutComponent } from './logout/logout.component'
 
 const MATERIALS = [
   MatFormFieldModule,
@@ -27,9 +23,6 @@ const MATERIALS = [
   declarations: [
     LoginComponent,
     LogoutComponent,
-    //FooterComponent,
-    //AuthCallbackComponent,
-    //SilentRefreshComponent,
   ],
   imports: [
     CommonModule,

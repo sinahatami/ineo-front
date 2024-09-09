@@ -149,7 +149,7 @@ export class UsersComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required],
       repeatPassword: ['', Validators.required],
-      isAdmin: [false],
+      isAdmin: [null],
     }
     this.formBuilder.group(form)
     this.form = this.formBuilder.group(form)

@@ -25,7 +25,6 @@ export class CustomHttpInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // let isTokenExpired: boolean = false
 
     if ((request.method == 'POST')) null
     else this.addRequest(request)
@@ -33,17 +32,7 @@ export class CustomHttpInterceptor implements HttpInterceptor {
     const token: string | null = this.authService.token
     if (token) {
       request = request.clone({ setHeaders: { authorization: token, 'Content-Type': 'application/json' } })
-      // isTokenExpired = this.authService.isTokenExpired()
     }
-    //&& !this.authService.canCallRefreshService
-    // if (token && isTokenExpired) this.authService.wantToRefresh = true
-
-
-    //    if (token && isTokenExpired && this.authService.wantToRefresh) {
-    // this.authService.wantToRefresh = true
-    // this.authService.canCallRefreshService = true
-    //this.authService.logoutAfter()
-    //  }
 
     let IsSuccess: boolean
     return next.handle(request).timeout(1800000).pipe(map((event: HttpEvent<any>): any => {
