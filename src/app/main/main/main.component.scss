@@ -1,0 +1,240 @@
+/* Global Variables */
+$primary-color: #3f51b5;
+$secondary-color: #f3f4f6;
+$light-gray: #ececec;
+$dark-gray: #333;
+$cursor-pointer: pointer;
+
+.navbar {
+  background-color: $primary-color;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+  }
+
+  .navbar-menu {
+    display: flex;
+    align-items: center;
+
+    .dropdown {
+      position: relative;
+
+      .dropdown-toggle {
+        cursor: $cursor-pointer;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: white;
+        color: $dark-gray;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 0.5rem 0;
+        width: 180px;
+        display: none;
+
+        a {
+          display: block;
+          padding: 0.75rem 1rem;
+          text-decoration: none;
+          color: $dark-gray;
+          &:hover {
+            background-color: $light-gray;
+          }
+        }
+      }
+
+      &:hover .dropdown-menu {
+        display: block;
+      }
+    }
+  }
+}
+
+/* Dashboard Container */
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  flex-wrap: nowrap;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 250px;
+  background-color: $primary-color;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: width 0.3s ease, transform 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 1000;
+
+  &.collapsed {
+    width: 80px;
+  }
+
+  .sidebar-header {
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: darken($primary-color, 10%);
+  }
+
+  .menu {
+    flex-grow: 1;
+    padding-top: 1rem;
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+          display: flex;
+          align-items: center;
+          padding: 1rem;
+          text-decoration: none;
+          color: white;
+          font-weight: 500;
+          transition: background-color 0.2s;
+
+          &:hover {
+            background-color: darken($primary-color, 10%);
+          }
+
+          i {
+            margin-right: 1rem;
+            font-size: 1.2rem;
+          }
+
+          &.active {
+            background-color: lighten($primary-color, 10%);
+          }
+      }
+    }
+  }
+
+  .sidebar-footer {
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 1px solid lighten($primary-color, 20%);
+  }
+}
+
+.toggle-sidebar {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+/* Main content */
+.main-content {
+  margin-left: 250px;
+  flex-grow: 1;
+  background-color: $secondary-color;
+  padding: 0px 0rem 2rem 0rem;
+  transition: margin-left 0.3s ease;
+  overflow-y: auto;
+
+  .content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    h2 {
+      font-size: 1.75rem;
+      color: $dark-gray;
+    }
+  }
+
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s;
+
+      &:hover {
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        color: $dark-gray;
+      }
+
+      p {
+        font-size: 1rem;
+        color: darken($dark-gray, 20%);
+      }
+    }
+  }
+}
+
+.main-body {
+  padding: 2rem;
+}
+
+/* Responsive Sidebar behavior */
+@media screen and (max-width: 1200px) {
+  .sidebar {
+    transform: translateX(-100%);
+    position: absolute;
+    &.active {
+      transform: translateX(0);
+    }
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  .toggle-sidebar {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 2rem;
+    visibility: visible !important;
+  }
+  .dropdown {
+    margin-right: 35px;
+  }
+}
+
+.menu > ul > li {
+  cursor: pointer;
+}
+
+.dropdown-menu > a {
+  cursor: $cursor-pointer;
+}

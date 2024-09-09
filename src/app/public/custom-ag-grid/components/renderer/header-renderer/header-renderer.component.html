@@ -1,0 +1,36 @@
+<div [class.m-0]="!actions || actions.length == 0" class="row" (mouseover)="hover = true" (mouseleave)="mouseleave()">
+    <div [class.col-10]="!params.column.colDef.hideImproveFilter" class="ag-header-cell-label"
+        [class.col-12]="params.column.colDef.hideImproveFilter" (click)="onSortRequested(sort, $event)">
+
+        <label *ngIf="!actions" class="item-name" matTooltipClass="header-tooltip"
+            matTooltip="{{params.displayName}}">{{
+            params.displayName }}
+        </label>
+
+        <ng-container *ngIf="params.enableSorting && !actions">
+            <div style="float: right; width: 16px; text-align: center" *ngIf="_sortingUp" [ngClass]="descSort"
+                class="customSortUpLabel">
+                <i class="ag-icon ag-icon-asc" aria-hidden="true"></i>
+            </div>
+            <div style="float: right; width: 16px; text-align: center" *ngIf="_sortingDown" [ngClass]="ascSort"
+                class="customSortDownLabel">
+                <i class="ag-icon ag-icon-desc" aria-hidden="true"></i>
+            </div>
+        </ng-container>
+
+        <div style="padding: 0px" [class.col-2]="!actions || actions.length == 0"
+            [class.col-10]="params.displayName == 'actions'">
+
+            <!---------------------->
+
+            <!--True Actions callback-->
+            <ng-container *ngIf="actions">
+                <i (click)="onAddClick(addAction, $event)" matTooltipClass="header-tooltip" matTooltip="add"
+                    matTooltipClass="blue-tooltip" class="fa fa-plus"></i>
+            </ng-container>
+            <!------------------------>
+
+        </div>
+
+    </div>
+</div>

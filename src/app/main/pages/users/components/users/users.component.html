@@ -1,0 +1,28 @@
+<custom-ag-grid *ngIf="showHideGrid" [customGridOption]="gridOption"></custom-ag-grid>
+
+<custom-modal *ngIf="showModal" [modalOptions]="modalOptions">
+    <div class="row" [formGroup]="form">
+        <div class="col-6">
+            <mat-form-field class="mat-form-field">
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="insert username" formControlName="username">
+            </mat-form-field>
+        </div>
+        <div class="col-6 mt-3">
+            <mat-checkbox [disabled]="form.disabled" formControlName="isAdmin">Is Admin</mat-checkbox>
+        </div>
+        <div class="col-6">
+            <mat-form-field class="mat-form-field">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="insert password" formControlName="password" type="password">
+            </mat-form-field>
+        </div>
+        <div class="col-6">
+            <mat-form-field class="mat-form-field">
+                <mat-label>Repeat Password</mat-label>
+                <input matInput [disabled]="form.disabled" placeholder="insert password again"
+                    formControlName="repeatPassword" type="password">
+            </mat-form-field>
+        </div>
+    </div>
+</custom-modal>

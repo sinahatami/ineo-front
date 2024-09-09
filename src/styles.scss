@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+@import "ngx-smart-modal/styles/ngx-smart-modal.scss";
+
+@import "@angular/material/prebuilt-themes/azure-blue.css";
+@import "ag-grid-community/styles/ag-grid.css";
+@import "ag-grid-community/styles/ag-theme-quartz.css";
+
+@import 'ngx-toastr/toastr';
+
+.cdk-global-overlay-wrapper, .cdk-overlay-container {
+    z-index: 99999 !important;
+}
+
+div.mat-mdc-select-panel {
+    background-color: white
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: rgb(255, 255, 255) !important;
+}
+
+.mat-mdc-form-field-focus-overlay {
+    background-color: unset !important
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+i {
+    cursor: pointer;
+}

@@ -1,0 +1,32 @@
+<div class="login-page">
+    <div class="login-box" @fadeIn>
+        <div class="login-header">
+            <h2>Welcome Back</h2>
+            <p>Please login to your account</p>
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Username</mat-label>
+                    <input matInput formControlName="username" required>
+                    <mat-error *ngIf="loginForm.get('username')?.invalid">Please enter a valid username</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="password" required>
+                    <mat-error *ngIf="loginForm.get('password')?.invalid">Password is required</mat-error>
+                </mat-form-field>
+            </div>
+
+            <button mat-raised-button class="d-block btn btn-grad mt-2" [disabled]="loginForm.invalid">Login</button>
+            <!-- <div class="forgot-password">
+                <a href="#">Forgot password?</a>
+            </div> -->
+        </form>
+        <!-- <div class="login-footer">
+            <p>Don’t have an account? <a href="#">Create one</a></p>
+        </div> -->
+    </div>
+</div>

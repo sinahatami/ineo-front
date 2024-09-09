@@ -1,0 +1,27 @@
+<ngx-smart-modal id="modal-to-drag" #modal [identifier]="modalId"
+    (onAnyCloseEvent)="onAnyCloseEvent(modalOptions.hideCallback)">
+
+    <div class="modal-header" id="modal-header">
+
+        <div class="modal-header-title">
+            <h3>{{modalOptions.modatTitle}}</h3>
+        </div>
+
+    </div>
+    <hr>
+
+    <div class="body-and-footer">
+
+        <div class="modal-body">
+            <ng-content></ng-content>
+        </div>
+
+        <div class="modal-footer">
+            <button *ngIf="modalOptions.saveCallback" [disabled]="modalOptions.modalType == 'View'" mat-raised-button
+                class="save-btn" color="primary" (click)="saveMethod(modalOptions.saveCallback)">save</button>
+            <button mat-raised-button color="warn" (click)="closeModal(modalOptions.hideCallback)">close</button>
+        </div>
+
+    </div>
+
+</ngx-smart-modal>

@@ -1,0 +1,55 @@
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" [class.active]="isSidebarActive">
+        <div class="sidebar-header">
+            Admin Panel
+        </div>
+        <nav class="menu">
+            <ul>
+                <li *ngFor="let item of menuList" [class.active]="item.routeUrl == activeItem.routeUrl"
+                    (click)="itemClicked(item)">
+                    <i [class]="item.icon"></i> {{ item.name }}
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            &copy; 2024 INEO Company
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+
+    <div class="main-content">
+        <nav class="navbar">
+            <div class="navbar-brand" (click)="goToDashboard()">Ineo</div>
+            <div class="navbar-menu">
+                <div class="dropdown">
+                    <button class="dropdown-toggle">
+                        <i class="material-icons">account_circle</i> Profile
+                    </button>
+                    <div class="dropdown-menu">
+                        <a (click)="logout()">Logout</a>
+                    </div>
+                </div>
+                <button class="toggle-sidebar" (click)="toggleSidebar()">
+                    <i class="material-icons">{{ isSidebarActive ? 'close' : 'menu' }}</i>
+                </button>
+            </div>
+        </nav>
+
+        <div class="main-body">
+
+            <mat-card appearance="outlined">
+                <mat-card-header>
+                    <mat-card-title>{{activeItem.name}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <router-outlet></router-outlet>
+                </mat-card-content>
+            </mat-card>
+
+
+        </div>
+
+    </div>
+</div>
