@@ -38,7 +38,7 @@ export class AuthService {
   }
 
   setToLocalStorage(token: string) {
-    localStorage.setItem('Token', token)
+    localStorage.setItem('Token', `Bearer ${token}`)
   }
 
   clearLocalStorage() {
